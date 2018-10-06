@@ -1,0 +1,105 @@
+% ********** MAIN PACKAGES
+% Load core style
+\usepackage{./styles/stylecore}
+
+% Include babel (Standard)
+% The primary language is the one on the right
+\usepackage[portuguese,english]{babel}
+
+% Manipulation of titles (chapters, sections, ...)
+\usepackage[explicit,indentafter,nobottomtitles*]{titlesec}
+
+% Include links to pages from Table of Contents
+\usepackage[linktocpage=true]{hyperref}
+
+\usepackage{times}
+
+
+
+
+
+% ********** SETUP
+\graphicspath{{./images/}{./}{./contents/}}
+
+\geometry{
+    ignoreheadfoot,
+    hdivide = {3cm,,3cm},
+    vdivide = {3cm,,3cm},
+    heightrounded
+}
+
+
+
+
+
+% ********** DOCUMENT'S PENALTIES
+\allowdisplaybreaks
+\hyphenpenalty=100
+\binoppenalty=3000
+\relpenalty=500
+\clubpenalty=3000
+\widowpenalty=7000
+\displaywidowpenalty=10000
+\brokenpenalty=2000
+\predisplaypenalty=8000
+
+
+
+
+
+% ********** DOCUMENT'S ENVIRONMENTS
+
+
+
+
+
+% ********** DOCUMENT'S TITLES AND HEADERS
+\pagestyle{fancy}
+
+% Left Header
+\lhead{}
+
+% Center Header
+\chead{Faculdade de Engenharia da Universidade do Porto}
+
+% Right Header
+\rhead{}
+
+% Header Line Width
+\renewcommand*{\headrulewidth}{0.2pt}
+
+% Left Footnote
+\lfoot{\foottitle}
+
+% Center Footnote
+\cfoot{}
+
+% Right Footnote
+\rfoot{\thepage}
+
+% Footnote Line Width
+\renewcommand*{\footrulewidth}{0.2pt}
+
+% Section Title Format
+%\titleformat{\section}{\normalfont\LARGE\bfseries}{}
+%    {2em plus .2em minus .2em}{#1}{}
+
+% Section Title Spacing
+\titlespacing*{\section}
+{0pt}{6ex plus 1.5ex minus 2.5ex}{3ex plus .8ex minus .8ex}
+
+% Subsection Title Format
+%\titleformat{\subsection}{\normalfont\Large\bfseries}{}
+%    {2em plus .2em minus .2em}{#1}{}
+
+% Subsection Title Spacing
+\titlespacing*{\subsection}
+{0pt}{4ex plus 1ex minus 1.5ex}{3ex plus .8ex minus .8ex}
+
+% Subsubsection Title Format
+%\titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{}
+%    {2em plus .2em minus .2em}{#1}{}
+
+% Subsubsection Title Spacing
+\titlespacing*{\subsubsection}
+{0pt}{3ex plus .5ex minus 1ex}{3ex plus .8ex minus .8ex}

@@ -1,0 +1,46 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+
+\usepackage{./styles/compilation}
+
+\addbibresource{bib/main.bib}
+\addbibresource{bib/att-1990.bib}
+\addbibresource{bib/year-2000.bib}
+\addbibresource{bib/soviet-nuclear.bib}
+
+\newcommand*{\foottitle}{History of Software Engineering}
+
+\title{
+	\includegraphics[scale=0.15]{feuplogo.jpg}\\
+	{\Huge History of Software Engineering}\\
+	{\normalsize Software Engineering 2018}
+}
+
+\author{
+	Bruno Carvalho\\ \text{up201606517}
+	\and
+	Diogo Yaguas\\ \text{up201606165}
+	\and
+	Tiago Castro\\ \text{up201606186}
+}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+
+\subfile{contents/main.tex}
+\clearpage
+
+\subfile{contents/att-1990.tex}
+\clearpage
+
+\subfile{contents/year-2000.tex}
+\clearpage
+
+\subfile{contents/soviet-nuclear.tex}
+\clearpage
+
+\printbibliography
+
+\end{document}
