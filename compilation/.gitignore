@@ -1,7 +1,7 @@
+*.aux
 *.blg
 *.bbl
 *.bcf
-*.aux
 *.log
 *.synctex.gz
 *.run.xml
@@ -10,3 +10,8 @@
 styles/*.aux
 styles/*.log
 styles/*.synctex.gz
+contents/*.aux
+contents/*.log
+contents/*.synctex.gz
+contents/*.out
+contents/*.aux
