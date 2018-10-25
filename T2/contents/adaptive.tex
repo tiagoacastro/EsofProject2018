@@ -21,6 +21,12 @@ The ASD cycle has six basic characteristics:
 
 \subsection{The Process of Adaptive Software Development}
 
+\begin{wrapfigure}[16]{l}[2em]{0.6\textwidth}
+	\vspace*{-\baselineskip}
+	\includegraphics[scale=0.3]{adaptive-cycle.png}
+	\caption{The Adaptive cycle\label{fig:adaptive-cycle}}
+\end{wrapfigure}
+
 Adaptive replaces the traditional waterfall model with a repeating series of \emph{speculate}, \emph{collaborate} and \emph{learn} cycles.
 It is characterized by constant change, re-evaluation, peering into an uncertain future and intense collaboration among developers, testers and customers in the various phases.
 
@@ -49,6 +55,60 @@ Collaboration with the client remains to handle minor issues or requirements adj
 
 \subsubsection[Learning]{3. Learning}
 
-This is the quality control phase. Here fit the 
+This is the quality control phase. Here is where many integration and system tests are performed. Knowledge is gathered about the state of the project to prepare for the next speculation phase.
+
+Focus groups, technical reviews and project postmortems are conducted in this phase. Giving a status report to the customer and receiving feedback is the common goal. In a focus group, the application or system being developed is presented to the customer, who then gives feedback, records change requests, and helps prepare a mission statement.
+
+Summing up, there are four general categories of things to learn about at the end of each iteration:
+
+\begin{itemize}
+	\item Result quality from the customer's perspective.
+	\item Result quality from a technical perspective.
+	\item The functioning of the delivery team and the practices team members are utilizing.
+	\item The project's status.
+\end{itemize}
+
+\subsection{Artifacts}
+
+\paragraph{Project Vision}
+A document which serves to establish a focus for the project, and identifies the foundation on which to build the team's commitment.
+It should help developers explain the project's purpose within a few minutes. The document may include: Project Background; Project Scope; Sponsors; Customers; Business Functional Objectives; Project Risks; Staffing Requirements; Constraints; Assumption...
+
+\paragraph{Project Data Sheet}
+A document which results from a project initiation. Includes: client, project objective statement, features, performance or quality attributes, architecture, issues and risks, milestones, and the team's core members.
+
+\begin{wrapfigure}[8]{r}[2em]{0.4\textwidth}
+	\vspace*{-\baselineskip}
+	\includegraphics[scale=0.35]{adaptive-mission-matrix.png}
+	\caption{Mission Profile's Matrix\label{fig:mission-matrix}}
+\end{wrapfigure}
+
+\paragraph{Product Mission Profile}
+A short document used to record focus for the next development iteration, using for instance profile matrices (\autoref{fig:mission-matrix}). These may be done per iteration or per feature.
+In the example, the \textsl{Excel} column identifies Scope as the most important dimension for the next iteration.
+
+\paragraph{Project Specification Outline}
+It serves several purposes.
+First, it provides the stakeholders and team members with a reasonable understanding of the boundaries and scope of the development effort.
+Second, it is a baseline for size estimation.
+Finally, the PSO facilitates adaptive cycle planning and is accomplished by assigning product features to specific cycles.
+The specification outline's primary objective is to define the features or functionality of the product.
+
+\subsection{Pros and Cons}
+
+\paragraph{Pros}
+\begin{itemize}
+	\item Allows for transparency because developers explain the state of the project to the client before, during and after each stage;
+	\item Generates high quality software, breaking down the project into components, concentrating on high quality development, testing of one component at a time, aids in producing a high quality end product in the end run.
+\end{itemize}
+
+\paragraph{Cons}
+\begin{itemize}
+	\item Requires a lot of the client's insight, thus requiring a lot of time from them;
+	\item Due to the lack of predictability, it is hard to develop the business case for the project and makes it even more difficult to negotiate for fixed prices and cost of the projects;
+	\item Testing at every stage helps deliver a quality product but increases the cost of the project in the long run and brings a lot of projects to failure.
+\end{itemize}
+
+\nocite{*}
 
 \end{document}
