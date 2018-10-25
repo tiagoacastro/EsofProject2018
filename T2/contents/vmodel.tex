@@ -4,7 +4,7 @@
 
 \section{V-Model}
 
-The V-Model is a unique, linear development methodology, defined by the late Paul Rook in the 1980s, used during a software development life cycle.
+The V-Model is a unique, linear and plan-driven development methodology, defined by the late \textbf{Paul Rook} in the 1980s.
 It was accepted in Europe and UK as a progressive alternative to the Waterfall model.
 
 The V-Model focuses on fairly typical waterfall-esque method that follows strict, step-by-step stages. While initial stages are broad design stages, progress proceeds down through more and more granular stages, leading into implementation and coding, and finally back through all testing stages prior to completion of the project.
@@ -17,26 +17,32 @@ The V-Model focuses on fairly typical waterfall-esque method that follows strict
 	\caption{The V-Model stages\label{fig:vmodel-v}}
 \end{wrapfigure}
 
-Much like the traditional waterfall model, the V-Model specifies a series of linear stages that should occur across the life cycle, one at a time, until the project is complete.
-For this reason, V-Model is not considered an agile development method, and due to the sheer volume of stages and their integration into the overall process, understanding the model in detail can be challenging for everyone on the team, let alone the client or users.
+Much like the traditional waterfall model, the V-Model specifies a series of \emph{linear} and well-defined stages.
+For this reason, V-Model is not considered an agile development method. Due to the sheer volume of stages and their integration into the overall process, understanding the model in detail can be challenging for everyone on the team, let alone the client or users.
 
-The V-shape of the V-Model represents the various stages that will be passed through during the software development lifecycle.
-Beginning at the top-left stage and working, over time, toward the top-right tip, the stages represent a linear progression of development rather similar to the waterfall model.
+The V-shape of the V-Model represents the various stages that will be passed through during the software development life cycle.
+Beginning at the top-left stage and working, over time, toward the top-right tip, the stages represent a linear progression of development, which laid out is rather similar to the waterfall model.
 
 So V-Model contains Verification phases on the left and Validation phases on the right of the development phase --- hence the name.
 
 \subsubsection{Design Phase}
 
 \paragraph{Requirements Gathering and Analysis}
-Contains detailed communication with the customer to understand the requirements and their expectations.
+Comprises detailed communication with the customer to understand the requirements of the project and their expectations.\supercite{vmodel-geeksforgeeks}
 
 \paragraph{System Design}
-Contains the system design and the complete hardware and communication setup for developing the product.
+Here the system engineers analyse and understand the business of the proposed system by studying a requirements document.\supercite{vmodel-wikipedia} If requirements are not feasible, the user is informed and they are adjusted. This document contains general system organization, protocols, etc.
+
+In this phase system testing is designed.
 
 \paragraph{Architectural Design}
-System design is broken down further into modules taking up different functionality. The data transfer and communication between the internal modules and with the outside world (other systems) is clearly understood.
+The system design is broken down further into modules taking up different functionality and interactions. Here some data structures and interfaces are specified. The data transfer and communication between the internal modules and with the outside world (other systems) is clearly understood.
 
-\paragraph{Module or Low-Level Design} Here the detailed design of each module is specified.
+In this phase integration testing is designed.
+
+\paragraph{Module or Low-Level Design} Here the detailed design of each module is completed. Further data structures, low-level interfaces, database tables and dependency issues are designed and specified.
+
+In this phase unit testing is designed.
 
 \subsubsection{Testing Phases}
 
@@ -60,12 +66,12 @@ In situations where the project length and scope are well-defined and limited, t
 
 \paragraph{Ideal for Time Management}
 Along the same vein, V-Model is also well-suited for projects that must maintain a strict deadline and meet key milestone dates throughout the process.
-With fairly clear and well-understood stages that the whole team can easily comprehend and prepare for, it is relatively simple to create a timeline for the entire development lifecycle, while generating milestones for each stage along the way. Of course, V-Model in no way ensures milestones will always be met, but the strict nature of the model itself enforces the need to keep to a fairly right schedule.
+With fairly clear and well-understood stages that the whole team can easily comprehend and prepare for, it is relatively simple to create a timeline for the entire development process, while generating milestones for each stage along the way. Of course, V-Model in no way ensures milestones will always be met, but the strict nature of the model itself enforces the need to keep to a fairly right schedule.
 
 \subsection{Disadvantages of V-Model}
 
 \paragraph{Lacks Adaptability}
-Similar to the issues facing the traditional waterfall model on which the V-Model is based, the most problematic aspect is the inability to adapt to any necessary changes during the development lifecycle.
+Similar to the issues facing the traditional waterfall model on which the V-Model is based, the most problematic aspect is the inability to adapt to any necessary changes during the development process.
 For example, an overlooked issue within some fundamental system design, that is then only discovered during the implementation phase, can present a severe setback in terms of lost man-hours as well as increased costs.
 
 \paragraph{Timeline Restrictions}

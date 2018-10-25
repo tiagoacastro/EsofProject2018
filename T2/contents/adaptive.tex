@@ -4,12 +4,13 @@
 
 \section{Adaptive Software Development}
 
-Adaptive software development (ASD) is an iterative, circular process of software development proposed by Jim Highsmith and Sam Bayer as a technique for building complex software and systems published in 2000.
-It's focused on rapid creation and evolution of software systems and is a predecessor of modern agile development techniques.
+Adaptive software development (ASD) is an iterative, circular process of software development created by \textbf{Jim Highsmith} and \textbf{Sam Bayer}. It is a methodology for building complex software applications and systems published in 2000.
 
-ASD derives from a conceptual perspective based on the Complex Adaptive Systems (CAS) theory and a practical perspective that supports itself on the Rapid Application Development techniques and deterministic methodologies. From CAS, it inherits its Emergence and Complexity.
+ASD is characterized by a rapid creation and evolution of the software application with an emphasis on collaboration. It is a successor to rapid application development and a predecessor of modern agile development techniques.\supercite{adaptive-wikidot,adaptive-wikipedia}
 
-The ASD cycle has six basic characteristics:
+ASD derives its conceptual perspective from the Complex Adaptive Systems (CAS) theory --- from which it inherits its Emergence and Complexity --- and its practical perspective on the Rapid Application Development techniques and deterministic methodologies.
+
+The ASD cycle has six basic characteristics:\supercite{adaptive-ecosystems}
 \begin{enumerate}
 	\item Mission focused
 	\item Feature based
@@ -27,7 +28,7 @@ The ASD cycle has six basic characteristics:
 	\caption{The Adaptive cycle\label{fig:adaptive-cycle}}
 \end{wrapfigure}
 
-Adaptive replaces the traditional waterfall model with a repeating series of \emph{speculate}, \emph{collaborate} and \emph{learn} cycles.
+Adaptive replaces the traditional linear waterfall model with a repeating series of \emph{speculate}, \emph{collaborate} and \emph{learn} cycles.
 It is characterized by constant change, re-evaluation, peering into an uncertain future and intense collaboration among developers, testers and customers in the various phases.
 
 \subsubsection[Speculation]{1. Speculation}
@@ -36,30 +37,30 @@ This is the setup phase. During it, developers attempt to understand the exact n
 
 To facilitate this, a previous cycle feeds information to this phase, namely bugs, user reports, new requirements found during developments and finished or unfinished features.
 
-Let's see how \emph{speculation} comprises \emph{project initiation} and \emph{risk-driven cycle planning}.
+Let's see how \emph{speculation} comprises \emph{project initiation} and \emph{cycle planning}.
 
 \paragraph{Project Initiation} The project's constraints and \textit{mission statement} are set by the customer. The development team determines the project's organization, gathers more requirements, and estimates size and scope.
 
 % The \emph{mission statement} needs to be specific, yet flexible. Attempting to excel in multiple dimensions usually results in a product being mediocre in all of them and excellent in none, or delayed releases.
 
-\paragraph{Risk-Driven Cycle Planning} The mission statement's aim is to expose the customer's desired result for the project.
-It's likely that the customer has no knowledge of the field, so this can be done adequately in layman's terms. Using the mission statement, the team forces it's focus on a single area --- such as features, schedule, defects, or resources --- in which it must excel in the development phase.
+\paragraph{Cycle Planning} The mission statement's aim is to expose the customer's desired result for the project.
+It's likely that the customer has no knowledge of the field, so this can be done adequately in layman's terms. Using the mission statement, the team forces it's focus on a single area --- such as features, schedule, defects, or resources --- in which it must excel in the development phase. This is inherently risk-driven: attempting to excel in all dimensions usually results in a product being mediocre in all of them and excellent in none (or delayed releases), so compromises must be made.
 
 Finally, the team fixes a set of features to implement in the next iteration and also \emph{fixes} a certain amount of time for it.
 
 \subsubsection[Collaboration]{2. Collaboration}
 
-This is the development phase. Here, effective collaboration between teams is key. Complex applications are not built --- they evolve. In this high information flow environment, one person or small group can't possibly \textsl{know it all}, so collaboration skills are paramount.
+This is the development phase. Here, effective collaboration within the team is key. Complex applications are not built --- they evolve. In this high information flow environment, one person or small group can't possibly \textsl{know it all}, so collaboration skills are paramount.
 
-Collaboration with the client remains to handle minor issues or requirements adjustments, and preference resolutions.
+Collaboration and communication with the client continues, but only to handle minor issues/requirements adjustments and preference resolutions.
 
 \subsubsection[Learning]{3. Learning}
 
-This is the quality control phase. Here is where many integration and system tests are performed. Knowledge is gathered about the state of the project to prepare for the next speculation phase.
+This is the quality control phase. Here is where many integration and system tests are performed. Knowledge is gathered about the project's state to prepare for the next speculation phase.
 
-Focus groups, technical reviews and project postmortems are conducted in this phase. Giving a status report to the customer and receiving feedback is the common goal. In a focus group, the application or system being developed is presented to the customer, who then gives feedback, records change requests, and helps prepare a mission statement.
+Focus groups, technical reviews and project artifacts are characteristic of this phase. Giving a status report to the customer and receiving feedback is the common goal. In a focus group, the application or system being developed is presented to the customer, who then gives feedback, records change requests, and helps prepare a mission statement.
 
-Summing up, there are four general categories of things to learn about at the end of each iteration:
+Summing up, there are four aspects to report on at the end of each iteration:
 
 \begin{itemize}
 	\item Result quality from the customer's perspective.
@@ -71,7 +72,7 @@ Summing up, there are four general categories of things to learn about at the en
 \subsection{Artifacts}
 
 \paragraph{Project Vision}
-A document which serves to establish a focus for the project, and identifies the foundation on which to build the team's commitment.
+A document which serves to establish a focus for the project,\supercite{adaptive-collaborative} and identifies the foundation on which to build the team's commitment.
 It should help developers explain the project's purpose within a few minutes. The document may include: Project Background; Project Scope; Sponsors; Customers; Business Functional Objectives; Project Risks; Staffing Requirements; Constraints; Assumption...
 
 \paragraph{Project Data Sheet}
@@ -84,7 +85,7 @@ A document which results from a project initiation. Includes: client, project ob
 \end{wrapfigure}
 
 \paragraph{Product Mission Profile}
-A short document used to record focus for the next development iteration, using for instance profile matrices (\autoref{fig:mission-matrix}). These may be done per iteration or per feature.
+A short document used to record focus for the next development iteration, using for instance profile matrices (\autoref{fig:mission-matrix}). These may be done per iteration or per feature.\supercite{adaptive-collaborative}
 In the example, the \textsl{Excel} column identifies Scope as the most important dimension for the next iteration.
 
 \paragraph{Project Specification Outline}
@@ -92,7 +93,7 @@ It serves several purposes.
 First, it provides the stakeholders and team members with a reasonable understanding of the boundaries and scope of the development effort.
 Second, it is a baseline for size estimation.
 Finally, the PSO facilitates adaptive cycle planning and is accomplished by assigning product features to specific cycles.
-The specification outline's primary objective is to define the features or functionality of the product.
+The specification outline's primary objective is to define the features or functionality of the product.\supercite{adaptive-collaborative}
 
 \subsection{Pros and Cons}
 
@@ -108,7 +109,5 @@ The specification outline's primary objective is to define the features or funct
 	\item Due to the lack of predictability, it is hard to develop the business case for the project and makes it even more difficult to negotiate for fixed prices and cost of the projects;
 	\item Testing at every stage helps deliver a quality product but increases the cost of the project in the long run and brings a lot of projects to failure.
 \end{itemize}
-
-\nocite{*}
 
 \end{document}
