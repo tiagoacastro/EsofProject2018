@@ -2,7 +2,7 @@
 
 \begin{document}
 
-\section{Issue #2554}
+\section{Issue 2554}
 
 When trying to change the zoom value by clicking the zoom button, the zoom label on the right lower corner updates correctly, but when trying to zoom in using the key shortcut (CTRL + '+'/'-') or via the view menu, the zoom label doesn't update.\\
 
@@ -62,9 +62,10 @@ The menu itens are roles (labels with pre-made listeners) for the zoom in and zo
 
 \begin{itemize}
 \item \textbf{zoomIn} - Zoom in the focused page by 10\%.
-\item \textbf{zoomOut} - Zoom out the focused page by 10\%. CTRL+ is associated to Zoom In and CTRL- is to Zoom out by association as triggers to modify the zoom.
+\item \textbf{zoomOut} - Zoom out the focused page by 10\%. 
 \end{itemize}
 
+CTRL+ is associated to Zoom In and CTRL- is to Zoom out by association as triggers to modify the zoom.\\
 
 The problem is that, when you zoom in or out using the views menu, the browser window zoomfactor is altered, but the config isn't altered, only the browser window class. The browser window class is where the zoom is actually set and the config is where the zoom value is kept for easy access.
 
@@ -122,7 +123,14 @@ The label is defined in the render function of the StatusBar on StatusBar/index.
 
 \subsection{Design of the fix}
 
-The way to fix this issue is by either, getting the zoomFactor from the browser window instead of from the config or changing the menu item in the menu to not using the zoomin and zoomout role action, using instead another listener that also calls the config update.
+The way to fix this issue is by either, getting the zoomFactor from the browser window instead of from the config or changing the menu item in the menu to not using the zoomin and zoomout role action, using instead another listener that also calls the config update.\\
+
+In the following sequence diagram, it is explained how the zoomin/zoomout menu option click (which can be done with the hotkeys as well) will be handled. Boostnote will send a message to electron which will have a callback associated to it and will call the said function to handle it. The handler function will call handleZoomMenuItemClick function which is used by the zoom button to change the menu, it updates the zoom value on the config and on the browser window.
+
+\begin{figure}[h]
+\includegraphics[scale=0.55]{images/dyagram-2554.png}
+\centering
+\end{figure}
 
 \nocite{*}
 
