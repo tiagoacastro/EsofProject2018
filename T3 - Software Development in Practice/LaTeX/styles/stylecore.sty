@@ -10,9 +10,6 @@
 % With verbose, geometry dumps it's core variables into the .log file
 \usepackage[verbose]{geometry}
 
-% Use latin modern font
-\usepackage{lmodern}
-
 % Include textcomp for extra text symbols
 \usepackage{textcomp}
 
@@ -37,8 +34,23 @@
 % Include captions (Standard)
 \usepackage[centerlast]{caption}
 
+% Use subcaptions
+\usepackage{subcaption}
+
+% Include floats (Standard)
+\usepackage{float}
+
+% Use subfloats
+\usepackage{subfloat}
+
 % Manipulate headers and footnotes
 \usepackage{fancyhdr}
+
+% Include links to pages from Table of Contents, use \autoref{}
+\usepackage[linktocpage=true]{hyperref}
+
+% Reference with \nameref{}
+\usepackage{nameref}
 
 %% ********** SECONDARY
 
@@ -51,8 +63,8 @@
 % Improve tabular environment
 \usepackage{tabularx}
 
-% Stop floats from crossing sections
-\usepackage[section]{placeins}
+% Stop floats from crossing sections with \FloatBarrier
+\usepackage[section,verbose]{placeins}
 
 % Customize lists, in particular enumerate
 \usepackage{enumitem}
@@ -80,7 +92,22 @@
 % Include AMS's theorem utility (includes proof environment)
 \usepackage{amsthm}
 
-% Algorithm environments to write algorithms!
+% \sfrac{}{}, side fractions
+\usepackage{xfrac}
+
+% ********** PROGRAMMING PACKAGES
+
+% Typeset code
+\usepackage{listings}
+
+% Color
+\usepackage[usenames,dvipsnames]{color}
+
+% Algorithm environments to write algorithms
 \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
+
+% ********** COMMONS
+
+\graphicspath{{./images/}{./}{./contents/}}
