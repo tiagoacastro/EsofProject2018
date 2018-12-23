@@ -81,9 +81,74 @@ A simple rundown of Boostnote's main dependencies, with emphasis on markdown-it 
 
 \subsection{Design of the fix}
 
-There are two ways to fix this issue. At katex.org we compare the computed styles of the LaTeX shown right on the front page to those of Boostnote applied to the same LaTeX elements. In particular we looked at attributes like display, textalign, and overflow-wrap. We concluded quickly that the problem was in the attribute white-space, whose value was reset to initial in Boostnote (meaning normal), instead of nowrap.\\
+\textbf{Discussion}\\
 
-Changing this attribute to nowrap will have unintended side effects (no wrapping in inline math mode), so the problem, albeit simple, will require further testing. The most likely solution will involve demoting selector body .katex to .katex-inline or removing the attribute, or even removing the .katex rules altogether.
+KaTeX, being a LaTeX formatting engine for the web, would certainly not have made it this far while allowing line breaks inside display math environments generally. We verified this earlier. So Boostnote's own stylesheets must be messing around where they shouldn't, and overwriting KaTeX's imported stylesheets.
+
+There are a few ways to fix this issue, but a proper fix will ultimately be a \textbf{breaking change} as it will disallow line wrapping in display math environments --- much to the dislike of some users, probably.
+
+Changing this attribute to nowrap will have unintended side effects (no wrapping in inline math mode), so the problem, albeit simple, will require further testing. The most likely solution will involve demoting selector body .katex to .katex-inline or removing the attribute, or even removing the .katex rules altogether.\\
+
+\textbf{Source of the problem}\\
+
+The problem is not in the dependency (KaTeX), see \href{https://github.com/KaTeX/KaTeX/issues/1732}{this discussion}. The KaTeX dependency includes its own major stylesheet, which should enforce this restriction on its own display math elements.
+
+Inspecting the elements inside Boostnote (Ctrl Shift I) suggests looking at class names .katex and .katex-display, as the rendered LaTeX parent element has these class names. A quick
+
+\begin{lstlisting}
+    grep -rnE "\\.katex" browser/
+\end{lstlisting}
+
+on the repository's main directory immediately pinpoints file \textbf{browser/components/markdown.styl}.
+
+At \href{https://katex.org/}{katex.org} we compare the computed styles of the LaTeX shown on the front page to those of Boostnote applied to the same LaTeX elements. In particular we looked at attributes like display, textalign, and overflow-wrap. We concluded quickly that the problem was in the attribute \textit{white-space}, whose value was reset to \textbf{initial} in Boostnote (in this case normal) for everything math element, instead of \textit{nowrap} which is KaTeX's own style.
+
+\subsection{Fix source code}
+
+The fix is essentially removing style *whitespace nowrap" from \textit{markdown.styl} while causing the smallest possible breaking change. After due analysis and experimentation on a variety of LaTeX constructs we decided to remove the entire rule \textit{.katex} and replace it with a simple switch: \textit{whitespace nowrap} for KaTeX display elements and \textit{whitespace initial} otherwise.
+
+\subsection{Validate the fix}
+
+\textbf{Solution Images}
+
+Consider the following content of a Markdown Note, containing mostly LaTeX and little Markdown:
+
+\begin{figure}[H]
+\includegraphics[scale=0.5]{images/solution1.png}
+\centering
+\end{figure}
+
+Now, below on the left is Boostnote's representation of the above LaTeX, and on the right that same LaTeX after the fix.
+
+\begin{figure}[H]
+\includegraphics[scale=0.40]{images/solution2.png}
+\includegraphics[scale=0.40]{images/solution3.png}
+\centering
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[scale=0.43]{images/solution5.png}
+\includegraphics[scale=0.43]{images/solution6.png}
+\centering
+\end{figure}
+
+Notice how, on the narrow display panel, the display math overflows the x-axis and is hidden. This is the expected behaviour in any LaTeX document.
+
+\subsection{Submission of the fix}
+
+The pull request was accepted on 16 December.
+
+The issue was not changed from Delivery #1, nor any extra/adjacent issues were created or fixed along with this one.
+
+\section{Wrap Up}
+
+Diogo Yaguas - Searching issues and report
+
+Bruno Carvalho - Issue \#2557
+
+Tiago Castro - Issue \#2554\\
+
+The work distribution was equally distributed.
 
 \nocite{*}
 

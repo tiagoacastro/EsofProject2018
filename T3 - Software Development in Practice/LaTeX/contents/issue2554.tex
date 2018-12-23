@@ -1,5 +1,7 @@
 \documentclass[main.tex]{subfiles}
 
+\newcommand*{\checklist}{\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}}
+
 \begin{document}
 
 \section{Issue 2554}
@@ -84,7 +86,7 @@ The label is defined in the render function of the StatusBar on StatusBar/index.
 \end{figure}
 
 \begin{figure}[htbp]
-\includegraphics[scale=0.6]{images/handlerZoom.png}
+\includegraphics[scale=0.6]{images/handlerZoom.png}\\
 \includegraphics[scale=0.4]{images/render.png}
 \centering
 \caption{StatusBar/index.js}
@@ -137,7 +139,73 @@ In the following sequence diagram, it is explained how the zoomin/zoomout menu o
 \begin{figure}[h]
 \includegraphics[scale=0.9]{images/dyagram-2554.png}
 \centering
+\caption{UML diagrams that illustrate the plan to fix the issue}
 \end{figure}
+
+\clearpage
+
+\subsection{Fix Source Code}
+
+\begin{figure}[h]
+\includegraphics[scale=0.6]{images/mainMenu.png}
+\centering
+\caption{main-menu.js}
+\label{fig:main-menu.js}
+\end{figure}
+
+In this file, the menu itens for zoom out and zoom in were changed from roles to labels in order for a custom listener to be associated with click(), disabling the built in listener associated to the role zoomin and zoomout. An accelerator was associated with each of the itens, CommandOrControl, meaning the hotkey will work on mac as well, CommandOrControl+= meaning Ctrl+(or Cmd+) and CommandOrControl+- meaning Ctrl-(or Cmd-).
+
+On the listeners, an electron request is sent which will be redirected to the respective handler.
+
+\begin{figure}[h]
+\includegraphics[scale=0.9]{images/statusBar.png}
+\centering
+\caption{StatusBar/index.js}
+\end{figure}
+
+In this snippet, the React.js function componentDidMount is used to bind the handlers to the StatusBar component as soon at it is mounted (added to the tree) and the eventEmitter.js functions are used to associate the requests to the respective bound handlers. By binding the handlers to the component, they are able to call class functions using the 'this' keyword.\\
+
+The function componentWillUnmount is also used to dissociate the requests from the respective handlers just before the component is unmounted and destroyed.
+
+\clearpage
+
+\begin{figure}[h]
+\includegraphics[scale=0.9]{images/handlezoom.png}
+\centering
+\caption{Handle Zoom}
+\end{figure}
+
+In this snippet, the handler functions are defined calling the already implemented function handleZoomMenuItemClick that changes the zoom value on the config and also on the browser window, receiving as parameter the new zoom which is the current zoom incremented or decremented by 0,1.
+
+\subsection{Validate the fix}
+
+\begin{figure}[h]
+\includegraphics[scale=0.95]{images/table.png}
+\centering
+\end{figure}
+
+Both images have a zoom value of 200\%, changed by the key shortcut. Only after the fix, the value of the label in the lower right corner was changed.\\
+
+\checklist Peer review
+
+\checklist  Easy to read and understand
+
+\checklist Efficient
+
+\checklist Lint Verified
+
+\checklist Passed all tests
+
+\subsection{Submission of the fix}
+
+\href{https://github.com/BoostIO/Boostnote/pull/2657}{Pull Request}
+
+\begin{enumerate}
+    \item The Pull Request has been submitted and approved;
+    \item The issue was indeed solved by a third party before us;
+    \item The issue is the same as in the first delivery;
+    \item Although the pull request was denied, we believe our solution to the issue is a bit more efficient and clean than the one previously accepted.
+\end{enumerate}
 
 \nocite{*}
 
