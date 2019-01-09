@@ -13,3 +13,8 @@ Diogo Filipe da Silva Yaguas<br>
 Tiago Araújo Castro
 * Student Number: 201606186
 * E-Mail: up201606186@fe.up.pt
+
+
+### Grades
+* First Project: 17.5
+
