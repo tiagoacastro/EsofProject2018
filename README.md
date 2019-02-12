@@ -17,4 +17,6 @@ Tiago Araújo Castro
 
 ### Grades
 * First Project: 17.5
+* Second Project: 17.0
+* Third Project: 16.5
 
